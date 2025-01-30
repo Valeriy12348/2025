@@ -4,25 +4,10 @@
     <meta charset="UTF-8">
     <title>Zadanie1</title>
 </head>
-<script>
-    <script src="Resources/jQuery.js" type="text/javascript"></script>
-<script type="text/javascript">
-    document.querySelectorAll(".switch-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            let img = this.previousElementSibling;
-            let currentSrc = img.scr;
-            let newScr = img.getAttribute("ba.png");
-
-            img.setAttribute("ba.png", currentSrc);
-            img.scr = newScr;
-        });
-    });
-
-</script>
 <style>
     body {
         background-color: #333333;
-        display: flex;
+        display: block;
     justify-content: center;
     align-items: center;
 }
@@ -55,32 +40,64 @@ h1 {
         font-size: 18px; /* Размер шрифта */
         margin-bottom: 10px; /* Отступ снизу */
     }
-    .switch-btn {
-        margin-top: 10px;
-        padding: 20px 30px;
-        cursor: pointer;
-        color:white;
-        border: none;
-        border-radius: 5px;
-    }
+
 </style>
 <body>
 <h1>Galeria Zdjęć</h1>
 <div class="obr">
     <div class="obr">
-        <h3>Obraz Czarno-bialy</h3>
-        <img src="b.png" alt="b" class="switchable" data-alt-scr="ba.png">
-        <button class="switch-btn"></button>
+        <p><h3>Obraz Czarno-bialy</h3></p>
+        <img id="obrazek" src="b.png" alt="b" >
+        <button  onclick="zmienobrazek()">Zmien</button>
+        <script>
+            let obrazekStatus = true;
+
+            function zmienobrazek(){
+                const obrazek = document.getElementById("obrazek");
+                if (obrazekStatus){
+                    obrazek.src = "ba.png"
+                }else{
+                    obrazek.src = "b.png"
+                }
+                obrazekStatus = !obrazekStatus
+            }
+        </script>
     </div>
     <div class="obr">
         <h3>Obraz Ciemno-czerwony</h3>
-        <img src="c.png" alt="c">
+        <img id="obrazek1" src="c.png" alt="c">
+        <button  onclick="zmienobrazek1()">Zmien</button>
+        <script>
+            let obrazek1Status = true;
 
+            function zmienobrazek1(){
+                const obrazek1 = document.getElementById("obrazek1");
+                if (obrazek1Status){
+                    obrazek1.src = "ca.png"
+                }else{
+                    obrazek1.src = "c.png"
+                }
+                obrazek1Status = !obrazek1Status
+            }
+        </script>
     </div>
     <div class="obr">
         <h3>Obraz Ciemwo-zielony</h3>
-        <img src="d.png" alt="d">
+        <img id="obrazek2" src="d.png" alt="d">
+        <button  onclick="zmienobrazek2()">Zmien</button>
+        <script>
+            let obrazek2Status = true;
 
+            function zmienobrazek2(){
+                const obrazek2 = document.getElementById("obrazek2");
+                if (obrazek2Status){
+                    obrazek2.src = "da.png"
+                }else{
+                    obrazek2.src = "d.png"
+                }
+                obrazek2Status = !obrazek2Status
+            }
+        </script>
     </div>
 </div>
 </body>
